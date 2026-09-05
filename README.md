@@ -1,9 +1,10 @@
 # Luckin Coffee Location Data Cleansing for SAP
 
 ## Overview
-This repository contains a data processing pipeline that cleans, standardizes, and geocodes Luckin Coffee store locations across China. The script takes raw, manually-entered location data and transforms it into a structured format suitable for SAP Customer Master Data (Business Partner) integration. 
+This repository contains a data processing pipeline that cleans, standardizes, and geocodes across China. This is intended for SAP S4/HANA Upgrade mass processing of customer addresses. The script takes sample data from Kaggle for Luckin Coffee store locations and transforms it into a structured format suitable for SAP Customer Master Data (Business Partner, including Coordinates) integration. 
 
 The core logic and workflow are demonstrated in `01_Location_Correction.md`.
+The creation of address in Pinyin are demonstrated in `02_Generate_Pinyin_Output`.
 
 ## Features
 - **Automated Data Retrieval**: Downloads the "5700 Luckin Coffee Stores Across China" dataset directly from Kaggle.
@@ -15,6 +16,7 @@ The core logic and workflow are demonstrated in `01_Location_Correction.md`.
   - `City` (SAP Field CITY1)
   - `District` (SAP Field CITY2)
   - `Address` (SAP Field STREET)
+  - `longitude` & `latitude` (SAP Field STREET)
 - **Data Cleansing**: Automatically filters out invalid or unopened stores (e.g., entries marked as "敬请期待!").
 
 ## Prerequisites
@@ -31,7 +33,7 @@ pip install pandas requests kagglehub tqdm python-dotenv openpyxl
 1. Clone this repository to your local machine.
 2. Create a `.env` file in the root directory and add your Amap API key:
    ```env
-   AMAP_API_KEY=your_amap_api_key_here
+   AMAP_API_KEY= "your_amap_api_key_here"
    ```
 3. Run the data processing script/notebook `01_Location_Correction.md`.
 4. The script will output a standardized Excel file named `Processed Data.xlsx` in the root directory.
