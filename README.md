@@ -13,8 +13,8 @@ The creation of address in Pinyin are demonstrated in `02_Generate_Pinyin_Output
 - **SAP-Ready Output**: Maps the cleaned data to standard SAP fields:
   - `BP code` (storeid)
   - `Province` (SAP Field REGION)
-  - `City` (SAP Field CITY1)
-  - `District` (SAP Field CITY2)
+  - `City (prefecture-level)` (SAP Field CITY1)
+  - `District (District for prefecture-level cities, or county-level cities)` (SAP Field CITY2)
   - `Address` (SAP Field STREET)
   - `longitude` & `latitude` (SAP Field STREET)
 - **Data Cleansing**: Automatically filters out invalid or unopened stores (e.g., entries marked as "敬请期待!").
